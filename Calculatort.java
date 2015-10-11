@@ -5,9 +5,19 @@ Public class Calcus{
 		if(numbers.equals("")){
 			return sum;
 		}
-		numbers = numbers.replace("," , ".");
 		
-		return (int)(sum += Double.parseDouble(numbers));
+		return fixstring(numbers);
 		
 	};
+	private int fixstring(String input){
+		input = input.replace("\\n" , ",");
+		String[] numbers = input.split(",");
+		int i = 0;
+		
+		while(i != numbers.length){
+			sum += Integer.parseInt(numbers[i]);
+			i++;
+		}
+		return sum;
+	}
 }
