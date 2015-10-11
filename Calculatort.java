@@ -5,7 +5,9 @@ Public class Calcus{
 		if(numbers.equals("")){
 			return sum;
 		}
-		sum += Integer.parseInt(numbers);
-		return sum;
+		numbers = numbers.replace("," , ".");
+		
+		return (int)(sum += Double.parseDouble(numbers));
+		
 	};
 }
