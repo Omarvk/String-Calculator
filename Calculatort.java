@@ -27,11 +27,13 @@ Public class Calcus{
 		String[] numbers = input.split(",");
 		int i = 0;
 		while(i != numbers.length){
-			isNumber(number[i].trim()){
+			if(isNumber(numbers[i].trim())){
 				if(Integer.parseInt(numbers[i]) < 0){
 					negative += numbers[i]+",";
 				}else{
-					sum += Integer.parseInt(numbers[i].trim());
+					if(Integer.parseInt(numbers[i]) <= 1000){
+						sum += Integer.parseInt(numbers[i].trim());
+					}
 				}
 			}
 			i++;
