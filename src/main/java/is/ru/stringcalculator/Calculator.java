@@ -3,6 +3,11 @@ package is.ru.stringcalculator;
 public class Calculator {
 
 	public static int add(String text){
+		try{
+			negative(splitNumbers(text));
+		}catch(Exception e){
+	
+		}
 		if(text.equals("")){
 			return 0;
 		}else if (text.contains("\n")){
@@ -37,7 +42,19 @@ public class Calculator {
 		numbers = numbers.replace("\n" , ",");
 		return sum(splitNumbers(numbers));
 	}
-	
+	private static void negative(String[] numbers) throws Exception{
+		String negative = "";
+	     for(String number : numbers){
+				if(isNumber(number)){
+					if(toInt(number) < 0){
+						negative += number+",";
+					}
+				}
+		}
+		if(!negative.equals("")){
+			throw new Exception("Negatives not allowed: "+negative);
+		}
+	}
 	private static Boolean isNumber(String numbers){
 		try
 		{
