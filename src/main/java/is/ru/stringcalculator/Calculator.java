@@ -34,15 +34,23 @@ public class Calculator {
  	    int total = 0;
         for(String number : numbers){
 			if(isNumber(number)){
-				total += toInt(number);
+				if(toBignumber(number)){
+					total += toInt(number);
+				}
 			}
 		}
 		return total;
     }
+	private static boolean toBignumber(String number){
+		if(toInt(number) > 1000){
+			return false;
+		}
+		return true;
+	}
 	private static int delimiter(String numbers){
 		String delimiter = Character.toString(numbers.charAt(2)).trim();
 		numbers = numbers.replace(delimiter, ",");
-		return sum(splitNumbers(numbers));
+		return newline(numbers);
 	}
 	private static int newline(String numbers){
 		numbers = numbers.replace("\n" , ",");

@@ -46,9 +46,13 @@ public class CalculatorTest {
 			assertEquals("Negatives not allowed: -4,-5", e.getMessage());
 		}
     }
-		@Test
-    public void testDelimiter,(){
+	@Test
+    public void testDelimiter(){
     	assertEquals(3, Calculator.add("//;\n1;2"));
+    }
+	@Test
+    public void testToBigNumber(){
+    	assertEquals(2, Calculator.add("1001,2"));
     }
 	
 }
