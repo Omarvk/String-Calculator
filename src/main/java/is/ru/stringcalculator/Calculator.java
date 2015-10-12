@@ -10,6 +10,8 @@ public class Calculator {
 		}
 		if(text.equals("")){
 			return 0;
+		}else if(text.contains("//") && text.contains("\n")){
+			return delimiter(text);
 		}else if (text.contains("\n")){
 			return newline(text);
 		}
@@ -37,7 +39,11 @@ public class Calculator {
 		}
 		return total;
     }
-	
+	private static int delimiter(String numbers){
+		String delimiter = Character.toString(numbers.charAt(2)).trim();
+		numbers = numbers.replace(delimiter, ",");
+		return sum(splitNumbers(numbers));
+	}
 	private static int newline(String numbers){
 		numbers = numbers.replace("\n" , ",");
 		return sum(splitNumbers(numbers));
