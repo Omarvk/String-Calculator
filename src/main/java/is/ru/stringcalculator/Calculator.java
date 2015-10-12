@@ -5,14 +5,14 @@ public class Calculator {
 	public static int add(String text){
 		if(text.equals("")){
 			return 0;
-		}else if text.contains("\\n"){
+		}else if (text.contains("\n")){
 			return newline(text);
 		}
 		else if(text.contains(",")){
 			return sum(splitNumbers(text));
 		}
 		else
-			return toInt(String number);
+			return toInt(text);
 	}
 
 	private static int toInt(String number){
@@ -26,7 +26,7 @@ public class Calculator {
     private static int sum(String[] numbers){
  	    int total = 0;
         for(String number : numbers){
-			if(isNumber(numbers){
+			if(isNumber(number)){
 				total += toInt(number);
 			}
 		}
@@ -34,7 +34,7 @@ public class Calculator {
     }
 	
 	private static int newline(String numbers){
-		numbers = numbers.replace("\\n" , ",");
+		numbers = numbers.replace("\n" , ",");
 		return sum(splitNumbers(numbers));
 	}
 	
