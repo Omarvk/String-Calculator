@@ -48,7 +48,13 @@ public class Calculator {
 		return true;
 	}
 	private static int delimiter(String numbers){
-		String delimiter = Character.toString(numbers.charAt(2)).trim();
+		String delimiter = "";
+		if(numbers.contains("[") && numbers.contains("]")){
+			delimiter = Character.toString(numbers.charAt(3)).trim();
+		}else{
+			delimiter = Character.toString(numbers.charAt(2)).trim();
+		}
+		
 		numbers = numbers.replace(delimiter, ",");
 		return newline(numbers);
 	}
