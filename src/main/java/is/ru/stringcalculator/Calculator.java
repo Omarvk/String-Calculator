@@ -50,12 +50,18 @@ public class Calculator {
 	private static int delimiter(String numbers){
 		String delimiter = "";
 		if(numbers.contains("[") && numbers.contains("]")){
-			delimiter = Character.toString(numbers.charAt(3)).trim();
+			String [] manyD;
+			manyD = numbers.split("]|/");
+			for(String num : manyD){
+				if(num.contains("[")){
+					num = num.replace("[", "");
+					numbers = numbers.replace(num, ",");
+				}		
+			}
 		}else{
 			delimiter = Character.toString(numbers.charAt(2)).trim();
+			numbers = numbers.replace(delimiter, ",");
 		}
-		
-		numbers = numbers.replace(delimiter, ",");
 		return newline(numbers);
 	}
 	private static int newline(String numbers){
