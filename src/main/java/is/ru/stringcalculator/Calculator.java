@@ -5,12 +5,14 @@ public class Calculator {
 	public static int add(String text){
 		if(text.equals("")){
 			return 0;
+		}else if text.contains("\\n"){
+			return newline(text);
 		}
 		else if(text.contains(",")){
 			return sum(splitNumbers(text));
 		}
 		else
-			return 1;
+			return toInt(String number);
 	}
 
 	private static int toInt(String number){
@@ -30,6 +32,12 @@ public class Calculator {
 		}
 		return total;
     }
+	
+	private static int newline(String numbers){
+		numbers = numbers.replace("\\n" , ",");
+		return sum(splitNumbers(numbers));
+	}
+	
 	private static Boolean isNumber(String numbers){
 		try
 		{

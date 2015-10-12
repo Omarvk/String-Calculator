@@ -33,5 +33,10 @@ public class CalculatorTest {
     public void testMultipleNumbersWithCharacters(){
     	assertEquals(4, Calculator.add("1,b,3"));
     }
-
+	
+	@Test
+    public void testNewline(){
+    	assertEquals(6, Calculator.add("1\n2,3"));
+    }
+	
 }
