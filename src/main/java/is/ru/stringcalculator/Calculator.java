@@ -23,7 +23,10 @@ public class Calculator {
 	}
 
 	private static int toInt(String number){
-		return Integer.parseInt(number);
+		if(isNumber(number)){
+			return Integer.parseInt(number);
+		}
+		return 0;
 	}
 
 	private static String[] splitNumbers(String numbers){
@@ -33,6 +36,7 @@ public class Calculator {
     private static int sum(String[] numbers){
  	    int total = 0;
         for(String number : numbers){
+			number = number.trim();
 			if(isNumber(number)){
 				if(toBignumber(number)){
 					total += toInt(number);
