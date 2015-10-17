@@ -1,2 +1,3 @@
 # String-Calculator
-Calcus
+TDD assigment
+used windows Gitbash for running test. 
